@@ -183,3 +183,35 @@ func main() {
 ```
 
 **Pointers**
+* Pointers reference a location in memory where a value is stored rather than the valueitself.
+* In Go, a pointer is represented using an asterisk (*) followed by the type of the storedvalue. In the zero function, xPtr is a pointer to an int.
+* An asterisk is also used to dereference pointer variables. Dereferencing a pointer givesus access to the value the pointer points to.
+* Finally, we use the & operator to find the address of a variable. &x returns a *int(pointer to an int) because x is an int.
+* &x in main and xPtr in zero refer to the same memory location.
+```go
+func zero(xPtr * int) {
+  *xPtr = 0 // store the int 0 in the memory location xPtr refers to!
+}
+/* If we try xPtr = 0 instead, we will get a compile-time error because xPtr is not an int; it’s a *int, which can only be given another *int. */
+func main() {
+  x := 5
+  zero(&x)
+  fmt.Println(x)
+}
+```
+
+* Another way to get a pointer is to use the built-in new function.
+* New takes a type as an argument, allocates enough memory to fit a value of that type,and returns a pointer to it.
+* In some programming languages, there is a significant difference between using new and &, with great care being needed to  eventually delete anything created with new. You don’t have to worry about this with Go—it’s a garbage-collected  programming language, which means memory is cleaned up automatically when nothing refers to it anymore.
+* Pointers are rarely used with Go’s built-in types, but they are extremely useful when paired with `structs`.
+```go
+func one(xPtr *int) {
+  *xPtr = 1
+}
+
+func main() {
+  xPtr := new(int)
+  one(xPtr)
+  fmt.Println(*xPtr)
+}
+```

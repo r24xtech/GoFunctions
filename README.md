@@ -81,7 +81,7 @@ func main() {
 ```go
 func evenGenerator() func() uint {
   i := uint(0)
-  return func() (ret uint) {
+  return func() (ret uint) { // this func will return ret because its return is empty and ret is part of its argument
     ret = i
     i += 2
     return
@@ -119,20 +119,18 @@ func main() {
 **Recursion**
 * A function is able to call itself, and that makes it recursive.
 ```go
-func fibonacci() func() int {
-	first, second := 0, 1
-	return func() int {
-		ret := first
-		first, second = second, first+second
-		return ret
-	}
+func Factorial(x int) int {
+  if x == 1 {
+    return 1
+  }
+  return x*Factorial(x-1)
 }
 
-func main() {
-	f := fibonacci()
-	for i := 0; i < 10; i++ {
-		fmt.Println(f())
-	}
+func Power(x float64, n int) float64 {
+  if n == 0 {
+    return 1
+  }
+  return x*Power(x, n-1)
 }
 ```
 

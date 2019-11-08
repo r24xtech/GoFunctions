@@ -53,8 +53,8 @@ func main() {
 ```
 
 
-* When  you  create  a  local  function  like  this,  it  also  hasaccess to other local variables.
-* increment adds 1 to the variable x, which is defined in the main function’s scope. Thisx  variable  can  be  accessed  and  modified  by  the  increment  function.  This  is  why  thefirst time we call increment we see 1 displayed, but the second time we call it we see 2displayed
+* When  you  create  a  local  function  like  this,  it  also  has access to other local variables.
+* increment adds 1 to the variable x, which is defined in the main function’s scope. This x variable can be accessed and  modified by the increment function. This is why the first time we call increment we see 1 displayed, but the second time we call it we see 2 displayed
 * A function like this together with the nonlocal variables it references is known as aclosure. In this case, increment and the variable x form the closure.
 ```go
 func main() {

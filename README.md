@@ -94,7 +94,23 @@ func main() {
 // Output: 2
 // Output: 4
 ```
+```go
+func fibonacci() func() int {
+	first, second := 0, 1
+	return func() int {
+		ret := first
+		first, second = second, first+second
+		return ret
+	}
+}
 
+func main() {
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(f())
+	}
+}
+```
 
 **Recursion**
 * A function is able to call itself, and that makes it recursive.

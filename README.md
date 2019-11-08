@@ -155,7 +155,7 @@ func main() {
 // Output: 1st
 // Output: 2nd
 ```
-* defer is often used when resources need to be freed in some way. For example, whenwe open a file, we need to make sure to close it later.
+* defer is often used when resources need to be freed in some way. For example, when we open a file, we need to make sure to close it later.
 * It keeps our Close call near our Open call so it’s easier to understand
 * Deferred functions are run even if a runtime panic occurs.
 * Deferred function calls are executed in Last In First Out order after the surrounding function returns
@@ -184,7 +184,7 @@ func main() {
 
 **Pointers**
 * Pointers reference a location in memory where a value is stored rather than the value itself.
-* In Go, a pointer is represented using an asterisk (*) followed by the type of the storedvalue. In the zero function, xPtr is a pointer to an int.
+* In Go, a pointer is represented using an asterisk (*) followed by the type of the stored value. In the zero function, xPtr is a pointer to an int.
 * An asterisk is also used to dereference pointer variables. Dereferencing a pointer gives us access to the value the pointer points to.
 * Finally, we use the & operator to find the address of a variable. &x returns a *int(pointer to an int) because x is an int.
 * &x in main and xPtr in zero refer to the same memory location.

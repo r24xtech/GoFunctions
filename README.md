@@ -94,3 +94,20 @@ func main() {
 // Output: 2
 // Output: 4
 ```
+
+**Recursion**
+```go
+func Factorial(x int) int {
+  if x == 1 {
+    return 1
+  }
+  return x*Factorial(x-1)
+}
+
+func Power(x float64, n int) float64 {
+  if n == 0 {
+    return 1
+  }
+  return x*Power(x, n-1)
+}
+```

@@ -97,6 +97,7 @@ func main() {
 
 
 **Recursion**
+* A function is able to call itself, and that makes it recursive.
 ```go
 func Factorial(x int) int {
   if x == 1 {

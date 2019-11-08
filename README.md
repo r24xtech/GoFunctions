@@ -80,7 +80,7 @@ func main() {
 * Naked return statements should be used only in short functions, as with the example shown here. They can harm readability in longer functions. 
 ```go
 func evenGenerator() func() uint {
-  i := uint(0)
+  i := uint(0) // 0, 2, 4,... the functions below is able to change i's value due to their different scope
   return func() (ret uint) { // this func will return ret because its return is empty and ret is part of its argument (naked return)
     ret = i
     i += 2

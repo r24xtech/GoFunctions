@@ -42,7 +42,7 @@ fmt.Println(add(xs...))
 
 **Closure**
 * It is possible to create functions inside of functions.
-* 
+
 ```go
 func main() {
   add := func(x, y int) int {
@@ -52,6 +52,10 @@ func main() {
 }
 ```
 
+
+* When  you  create  a  local  function  like  this,  it  also  hasaccess to other local variables.
+* increment adds 1 to the variable x, which is defined in the main function’s scope. Thisx  variable  can  be  accessed  and  modified  by  the  increment  function.  This  is  why  thefirst time we call increment we see 1 displayed, but the second time we call it we see 2displayed
+* A function like this together with the nonlocal variables it references is known as aclosure. In this case, increment and the variable x form the closure.
 ```go
 func main() {
   x := 0
@@ -66,3 +70,27 @@ func main() {
 // OUtput: 2
 ```
 
+
+* `uint` means "unsigned integer" while `int` means "signed integer". Unsigned integers only contain positive numbers (or zero).
+* One way to use closure is by writing a function that returns another function, whichwhen called, can generate a sequence of numbers.
+* evenGenerator returns a function that generates even numbers. Each time it’scalled, it adds 2 to the local i variable, which—unlike normal local variables—persistsbetween calls
+```go
+func evenGenerator() func() uint {
+  i := uint(0)
+  return func() (ret uint) {
+    ret = i
+    i += 2
+    return
+  }
+}
+
+func main() {
+  nextEven := evenGenerator()
+  fmt.Println(nextEven())
+  fmt.Println(nextEven())
+  fmt.Println(nextEven())
+}
+// Output: 0
+// Output: 2
+// Output: 4
+```

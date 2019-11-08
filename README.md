@@ -155,3 +155,29 @@ func main() {
 // Output: 1st
 // Output: 2nd
 ```
+* defer is often used when resources need to be freed in some way. For example, whenwe open a file, we need to make sure to close it later.
+* It keeps our Close call near our Open call so it’s easier to understand
+* Deferred functions are run even if a runtime panic occurs.
+* Deferred function calls are executed in Last In First Out order after the surrounding function returns
+```go
+f, _ := os.Open(filename)
+defer f.Close()
+```
+
+```go
+func main() {
+  panic("PANIC")
+  str := recover() // this will never happen
+  fmt.Println(str)
+}
+```
+* But the call to recover will never happen in this case, because the call to panic immediately stops execution of the function. Instead, we have to pair it with defer.
+```go
+func main() {
+  defer func() {
+    str := recover()
+    fmt.Println(str)
+  }()
+  panic("PANIC")
+}
+```

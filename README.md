@@ -95,6 +95,7 @@ func main() {
 // Output: 4
 ```
 
+
 **Recursion**
 ```go
 func Factorial(x int) int {
@@ -111,3 +112,6 @@ func Power(x float64, n int) float64 {
   return x*Power(x, n-1)
 }
 ```
+
+
+**defer, panic, and recover**

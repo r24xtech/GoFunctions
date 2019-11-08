@@ -37,5 +37,32 @@ func add(args ...int) int {
 xs := []int{1,2,3}    
 fmt.Println(add(xs...))
 */
-
 ```
+
+
+**Closure**
+* It is possible to create functions inside of functions.
+* 
+```go
+func main() {
+  add := func(x, y int) int {
+    return x + y
+  }
+  fmt.Println(add(1,1))
+}
+```
+
+```go
+func main() {
+  x := 0
+  increment := func() int {
+    x++
+    return x
+  }
+  fmt.Println(increment())
+  fmt.Println(increment())
+}
+// Output: 1
+// OUtput: 2
+```
+

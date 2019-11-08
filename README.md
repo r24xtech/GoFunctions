@@ -73,7 +73,7 @@ func main() {
 
 * `uint` means "unsigned integer" while `int` means "signed integer". Unsigned integers only contain positive numbers (or zero).
 * One way to use closure is by writing a function that returns another function, which when called, can generate a sequence of numbers.
-* evenGenerator returns a function that generates even numbers. Each time it’scalled, it adds 2 to the local i variable, which—unlike normal local variables—persistsbetween calls
+* evenGenerator returns a function that generates even numbers. Each time it’scalled, it adds 2 to the local i variable, which—unlike normal local variables—persists between calls.
 ```go
 func evenGenerator() func() uint {
   i := uint(0)

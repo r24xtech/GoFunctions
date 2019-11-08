@@ -136,3 +136,22 @@ func Power(x float64, n int) float64 {
 
 
 **defer, panic, and recover**
+* Go has a special statement called `defer` (defer = delay, put off, postpone) that schedules a function call to be run afterthe function completes.
+* This program prints 1st followed by 2nd. Basically, defer moves the call to second tothe end of the function.
+
+```go
+func first() {
+  fmt.Println("1st")
+}
+
+func second() {
+  fmt.Println("2nd")
+}
+
+func main() {
+  defer second()
+  first()
+}
+// Output: 1st
+// Output: 2nd
+```

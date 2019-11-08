@@ -81,7 +81,7 @@ func main() {
 ```go
 func evenGenerator() func() uint {
   i := uint(0)
-  return func() (ret uint) { // this func will return ret because its return is empty and ret is part of its argument
+  return func() (ret uint) { // this func will return ret because its return is empty and ret is part of its argument (naked return)
     ret = i
     i += 2
     return

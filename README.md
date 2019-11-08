@@ -73,7 +73,7 @@ func main() {
 
 * `uint` means "unsigned integer" while `int` means "signed integer". Unsigned integers only contain positive numbers (or zero).
 * One way to use closure is by writing a function that returns another function, which when called, can generate a sequence of numbers.
-* evenGenerator returns a function that generates even numbers. Each time it’scalled, it adds 2 to the local i variable, which—unlike normal local variables—persists between calls.
+* `evenGenerator` returns a function that generates even numbers. Each time it’scalled, it adds 2 to the local i variable, which—unlike normal local variables—persists between calls.
 * This is what is called a naked return. I have removed the arguments from the return statement. The Go compiler automatically returns the current values in the return arguments local variables. Though this is really cool you need to watch for shadowing.
 * Go's return values may be named. If so, they are treated as variables defined at the top of the function. These names should be used to document the meaning of the return values. 
 * A return statement without arguments returns the named return values. This is known as a "naked" return. 
@@ -99,20 +99,20 @@ func main() {
 // Output: 4
 ```
 ```go
-func fibonacci() func() int {
-	first, second := 0, 1
-	return func() int {
-		ret := first
-		first, second = second, first+second
-		return ret
-	}
+func fibonacci() func() int{
+  first, second := 0, 1
+  return func() int {
+    ret := first
+    first, second = second, first + second
+    return ret
+  }
 }
 
 func main() {
-	f := fibonacci()
-	for i := 0; i < 10; i++ {
-		fmt.Println(f())
-	}
+  f := fibonacci()
+  for i := 0; i < 10; i++ {
+    fmt.Println(f())
+  }
 }
 ```
 
@@ -137,7 +137,7 @@ func Power(x float64, n int) float64 {
 
 **defer, panic, and recover**
 * Go has a special statement called `defer` (defer = delay, put off, postpone) that schedules a function call to be run afterthe function completes.
-* This program prints 1st followed by 2nd. Basically, defer moves the call to second tothe end of the function.
+* This program prints 1st followed by 2nd. Basically, `defer` moves the call to second to the end of the function.
 
 ```go
 func first() {

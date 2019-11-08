@@ -183,9 +183,9 @@ func main() {
 ```
 
 **Pointers**
-* Pointers reference a location in memory where a value is stored rather than the valueitself.
+* Pointers reference a location in memory where a value is stored rather than the value itself.
 * In Go, a pointer is represented using an asterisk (*) followed by the type of the storedvalue. In the zero function, xPtr is a pointer to an int.
-* An asterisk is also used to dereference pointer variables. Dereferencing a pointer givesus access to the value the pointer points to.
+* An asterisk is also used to dereference pointer variables. Dereferencing a pointer gives us access to the value the pointer points to.
 * Finally, we use the & operator to find the address of a variable. &x returns a *int(pointer to an int) because x is an int.
 * &x in main and xPtr in zero refer to the same memory location.
 ```go

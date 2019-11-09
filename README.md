@@ -215,3 +215,11 @@ func main() {
   fmt.Println(*xPtr)
 }
 ```
+
+```go
+y := new(int)
+fmt.Println(y)
+// Output: 0xc0000100a0
+fmt.Println(*y)
+// Output: 0
+```

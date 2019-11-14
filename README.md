@@ -1,6 +1,16 @@
 # GoFunctions
 All about functions in Go.
 
+https://jordanorelli.com/post/42369331748/function-types-in-go-golang
+
+* Function Types
+* Anonymous Function Closures
+* Function Collections `type binFunc func(int, int) int`
+* Functions as Fields
+* Recursive Function Types
+* Function Types as Interface Values
+* Channels of Functions
+
 ```go
 func main(){
 	xzx := []float64{98,93,77,82,83}
